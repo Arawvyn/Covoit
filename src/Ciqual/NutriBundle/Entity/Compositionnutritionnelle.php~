@@ -1,0 +1,85 @@
+<?php
+
+namespace Ciqual\NutriBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Compositionnutritionnelle
+ *
+ * @ORM\Table(name="compositionnutritionnelle", indexes={@ORM\Index(name="CodeAliments", columns={"CodeAliments"}), @ORM\Index(name="CodeConstituant", columns={"CodeConstituant"}), @ORM\Index(name="Source", columns={"Source"})})
+ * @ORM\Entity
+ */
+class Compositionnutritionnelle
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ValeurSelect", type="string", length=255, nullable=true)
+     */
+    private $valeurselect;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ValMin", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $valmin;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ValMax", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $valmax;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="NbEchantillons", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $nbechantillons;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeConfiance", type="string", length=1, nullable=true)
+     */
+    private $codeconfiance;
+
+    /**
+     * @var \Source
+     *
+     * @ORM\ManyToOne(targetEntity="Source")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Source", referencedColumnName="CodeSource")
+     * })
+     */
+    private $source;
+
+    /**
+     * @var \Aliment
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Aliment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeAliments", referencedColumnName="CodeAliment")
+     * })
+     */
+    private $codealiments;
+
+    /**
+     * @var \Constituant
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Constituant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeConstituant", referencedColumnName="CodeConstituant")
+     * })
+     */
+    private $codeconstituant;
+
+
+}

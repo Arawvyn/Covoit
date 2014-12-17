@@ -1,0 +1,7 @@
+ciqual_nutri_homepage:
+    path:     /home
+    defaults: { _controller: CiqualNutriBundle:Advert:index }
+
+ciqual_nutri_aliment:
+    path: /aliments
+    defaults : { _controller : CiqualNutriBundle:Aliment:view}

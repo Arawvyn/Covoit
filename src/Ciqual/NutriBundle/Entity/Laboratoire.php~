@@ -1,0 +1,46 @@
+<?php
+
+namespace Ciqual\NutriBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Laboratoire
+ *
+ * @ORM\Table(name="laboratoire")
+ * @ORM\Entity
+ */
+class Laboratoire
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CodeLabo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codelabo = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomLabo", type="string", length=255, nullable=true)
+     */
+    private $nomlabo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Source", mappedBy="codelabo")
+     */
+    private $codesource;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codesource = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

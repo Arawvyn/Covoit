@@ -1,0 +1,7 @@
+ciqual_nutri:
+    resource: "@CiqualNutriBundle/Resources/config/routing.yml"
+    prefix:   /nutrition
+
+oc_platform:
+    resource: "@OCPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform

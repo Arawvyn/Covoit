@@ -1,0 +1,31 @@
+{% extends "CiqualNutriBundle::layout.html.twig" %}
+
+{% block title %}
+    {{parent() }} - Aliment
+{% endblock %}
+
+{% block entete %}
+    Aliments
+{% endblock %}
+
+{% block body %}
+    <table border="1">
+        <tr>
+            <th>Code</th>
+            <th>Nom français</th>
+            <th>Nom Anglais</th>
+            <th>Nom scientifique</th>
+            <th>Famille</th>
+        </tr>
+        
+    {% for ali in listAliments %}
+        <tr>
+            <td> {{ ali.getCodeAliment}}</td>
+            <td> {{ ali.getNomFr}} </td>
+            <td> {{ ali.getNomgb }} </td>
+            <td> {{ ali.getNomscientifique }}</td>
+            <td> {{ ali.getCodefamillealiments.getNomfr }} </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
